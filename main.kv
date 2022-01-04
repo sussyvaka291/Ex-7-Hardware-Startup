@@ -1,0 +1,76 @@
+<MainScreen>:
+    #: import time __main__.time
+
+    name: 'main'
+    stepper_motor_button: stepper_motor_button
+    direction_button: direction_button
+    amongus_slider: amongus_slider
+    label_slider: label_slider
+    complex_button: complex_button
+    in_real_life_label: in_real_life_label
+
+    FloatLayout:
+        size_hint: None, None
+
+    DPEAButton:
+        id: stepper_motor_button
+        size: 300, 300
+        text: "Us"
+        x: root.width * 0.53
+        y: root.height * 0.5
+        color: 212/255, 72/255, 80/255, 1
+        on_press: root.start_stepper()
+        on_release: root.stop_stepper()
+        in_real_life_label: in_real_life_label
+
+    DPEAButton:
+        id: direction_button
+        text: "Among"
+        size: 300, 300
+        x: root.width * 0.33
+        y: root.height * 0.5
+        color: 72/255, 212/255, 113/255, 1
+        on_press: root.change()
+        on_release: root.stop_stepper()
+
+    DPEAButton:
+        id: complex_button
+        size: 300, 300
+        text: "In real life"
+        x: root.width * 0.43
+        y: root.height * 0.2
+        color: 52/255, 88/255, 235/255, 1
+        on_press: root.queso_thread()
+
+    Slider:
+        id: amongus_slider
+        x: root.width * 0.1
+        y: root.height * 0.1
+        size_hint: 0.9, 0.1
+        min: 1
+        max: 10
+        value: 2
+        step: 1
+        on_value: root.slide_speed()
+
+    Label:
+        id: label_slider
+        size_hint: None, None
+        font_size: 50
+        x: root.width * 0.2
+        y: root.height * 0.5
+        color: 0, 0, 0, 1
+        text: str(amongus_slider.value)
+
+    Label:
+        id: in_real_life_label
+        size_hint: None, None
+        font_size: 80
+        x: root.width * 0.8
+        y: root.height * 0.5
+        color: 0, 0, 0, 1
+        text: "Position"
+
+
+
+
